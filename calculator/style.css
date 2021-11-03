@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "D7CB";
+    src: url("fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2") format('woff2');
+}
+
+.wrapper {
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 10vh auto 0 auto;
+    box-shadow: 0 0 5px;
+    padding-top: 5px;
+    background: silver;
+}
+
+.buttons {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+
+}
+
+.buttons > div {
+    border-top: 1px solid #999;
+    border-right: 1px solid#999;
+}
+
+.button {
+    border: 0.5px solid #999;
+    line-height: 100px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    transition:0s 0.1s
+
+}
+
+#display {
+    text-align: right;
+    height: 70px;
+    line-height: 70px;
+    font-size: 30px;
+    background-color: black;
+    color: red;
+    font-family: 'D7CB';
+    padding: 10px;
+    margin: 10px 10px 0px 10px;
+
+}
+
+#equal {
+    background-color: rgb(85, 85, 255);
+    color: white;
+}
+
+
+.button:active {
+box-shadow: 0px 0px 5px #0c0c0c;
+transition: 0s;
+ outline: none;
+}
