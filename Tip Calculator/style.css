@@ -1,0 +1,42 @@
+body {
+    font-family: 'Space Mono', monospace;
+    background-color: hsl(185, 41%, 84%);
+}
+.wrapper {
+    align-items: center;
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+}
+.container {
+    width: 60vw;
+    height: 40vh;
+    place-items: center;
+    display: grid;
+    grid-template-areas:
+    'main-l main-r';
+    gap: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.header {
+    width: 10vw;
+    margin: 0 auto;
+    /* align-self: center; */
+    display: grid;
+    justify-content: center;
+}
+
+.main-l {
+    margin: 10vh auto;
+    grid-area: main-l;
+}
+
+.main-r {
+    background-color: hsl(183, 100%, 15%);
+ 
+    grid-area: main-r;
+    border-radius: 5px;
+}
