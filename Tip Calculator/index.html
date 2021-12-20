@@ -19,43 +19,42 @@
 <body>
   <div class="wrapper">
     <div class='header'>
-      SPLI<br>
-      TTER
+      <img src="./images/logo.svg" alt="Logo">
     </div>
     <div class='container'>
 
 
       <div class='main-l'>
         <div class="innerl">
-          <div class ="bill">Bill</div>
+          <div class="bill">Bill</div>
           <div class="input-container-amount">
-            <input type="text" value="0"/>
-        </div>
+            <input id="amount-val" type="text" value="0" />
+          </div>
           <div class="tip">Select Tip %</div>
-          <button class = "fiveper perbut">5%</button>
-          <button class = "tenper perbut">10%</button>
-          <button class = "fifteenper perbut">15%</button>
-          <button class = "twentyfiveper perbut">25%</button>
-          <button class = "fifteyper perbut">50%</button>
-          <button class = "custper perbut">Custom</button>
+          <button class="fiveper perbut" id="fiveper" onclick="output(.05, 'fiveper');">5%</button>
+          <button class="tenper perbut" id="tenper" onclick="output(.1, 'tenper');">10%</button>
+          <button class="fifteenper perbut" id="fifteenper" onclick="output(.15, 'fifteenper');">15%</button>
+          <button class="twentyfiveper perbut" id="twentyfiveper" onclick="output(.25, 'twentyfiveper');">25%</button>
+          <button class="fifteyper perbut" id="fiftyper" onclick="output(.5, 'fiftyper');">50%</button>
+          <button class="custper perbut">Custom</button>
           <div class="people">Number of People</div>
           <div class="input-container-numpeople">
-            <input type="text" value="0"/>
-        </div>
-         
+            <input id="num-people" type="text" value="0" />
+          </div>
+
         </div>
       </div>
       <div class="main-r">
         <div class="innerr">
-          <div class="narrowtl"> Tip Amount<br>/ person</div>
-          <div class="narrowtr">£0</div>
+          <div class="narrowtl"> Tip Amount<br>/person</div>
+          <div id="tip_amount" class="narrowtr">£0</div>
           <div class="narrowml"> Total<br>
             /person</div>
-          <div class="narrowmr">£0</div>
+          <div id="tot-pers" class="narrowmr">£0</div>
           <div class='bottom'>
-            <button type = 'button' class="button">Reset</button>
+            <button type='button' class="button">Reset</button>
           </div>
-          
+
 
 
 
@@ -67,5 +66,29 @@
     </div>
   </div>
 </body>
+<script>
+
+  function output(tip, id) {
+    var elems = document.querySelectorAll(".perbut.active");
+
+    [].forEach.call(elems, function (el) {
+      el.classList.remove("active");
+    });
+    var x = document.getElementById(id);
+    // If "mystyle" exist, overwrite it with "mystyle2"
+    x.classList.add("active");
+
+    let locale = Intl.NumberFormat('en-GB', {
+      style: 'currency',
+      currency: 'GBP',
+    });
+    var value1 = document.getElementById('amount-val').value;
+    var value2 = document.getElementById('num-people').value;
+    var tip_amount = parseInt((value1 * tip) / parseInt(value2));
+    document.getElementById('tip_amount').innerHTML = locale.format(tip_amount);
+    var amount_per = (parseInt(value1) + parseInt(tip_amount)) / parseInt(value2)
+    document.getElementById('tot-pers').innerHTML = locale.format(amount_per);
+  }
+</script>
 
 </html>
